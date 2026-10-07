@@ -7,10 +7,11 @@ filters.forEach(button => button.addEventListener('click', () => {
     item.classList.toggle('active', active);
     item.setAttribute('aria-pressed', String(active));
   });
+  document.querySelector('.periodic-grid')?.classList.toggle('is-filtered', selected !== 'all');
   let visible = 0;
   skills.forEach(card => {
     card.hidden = selected !== 'all' && card.dataset.group !== selected;
     if (!card.hidden) visible++;
   });
-  document.getElementById('filter-status').textContent = `${visible} skill areas shown.`;
+  document.getElementById('filter-status').textContent = `${visible} skills shown.`;
 }));
